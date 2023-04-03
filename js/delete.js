@@ -9,9 +9,7 @@ deleteTeacherForm.addEventListener('submit', function (event) {
 });
 
 function deleteTeacher() {
-
-    let URL = "http://localhost:59934/api/TeacherData/DeleteTeacher/"+data["TeacherId"];
-    console.log(formData)
+    let URL = "http://localhost:59934/api/TeacherData/DeleteTeacher/" + data["TeacherId"];
     let rq = new XMLHttpRequest();
 
     rq.onreadystatechange = function () {
@@ -26,9 +24,6 @@ function deleteTeacher() {
 
     rq.open("POST", URL);
     rq.setRequestHeader('Content-type', 'text/plain');
-
-    // Convert form data to a JSON object
-
 
     console.log("sending " + data["TeacherId"]);
     rq.send(data["TeacherId"]);

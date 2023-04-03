@@ -1,4 +1,8 @@
 const createTeacherForm = document.getElementById('createTeacherForm');
+const formData = new FormData(createTeacherForm);
+const data = Object.fromEntries(formData.entries());
+// Convert form data to a JSON object
+const jsonData = JSON.stringify(data);
 
 createTeacherForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -21,12 +25,7 @@ function createTeacher() {
 
     rq.open("POST", URL);
     rq.setRequestHeader('Content-type', 'application/json');
-
-    // Convert form data to a JSON object
-    const formData = new FormData(createTeacherForm);
-    const data = Object.fromEntries(formData.entries());
-    const jsonData = JSON.stringify(data);
-
+    
     console.log("Sending data:", jsonData);
     rq.send(jsonData);
 }
